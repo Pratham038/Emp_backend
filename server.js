@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const db = require("../git_server/src/config/db");
+const db = require("./src/config/db");
 const employeeRoutes = require("./src/routes/employeeRoutes");
 
 const cors = require("cors");
