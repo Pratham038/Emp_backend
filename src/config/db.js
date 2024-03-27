@@ -32,28 +32,8 @@ function executeQuery(query, values = []) {
 }
 
 function createTablesIfNotExist() {
-  //const createUsersTableQuery = `
-  // CREATE TABLE IF NOT EXISTS users (
-  //   user_id INT NOT NULL AUTO_INCREMENT,
-  //   user_bio VARCHAR(255) ,
-  //   user_email VARCHAR(255) NOT NULL UNIQUE,
-  //   user_name VARCHAR(255) NOT NULL UNIQUE,
-  //   user_password VARCHAR(255) NOT NULL,
-  //   PRIMARY KEY (user_id)
-  // )`;
-  //   const createAccessTokenQuery = `CREATE TABLE IF NOT EXISTS access_tokens (
-  //   id INT NOT NULL AUTO_INCREMENT,
-  //   user_id INT,
-  //   user_email VARCHAR(255) NOT NULL ,
-  //   token VARCHAR(255) UNIQUE NOT NULL,
-  //   expiration_time TIMESTAMP,
-  //   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  //   PRIMARY KEY (id),
-  //   FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE ON UPDATE CASCADE
-  // );`;
-
   const createEmployeeTableQuery = `
-  CREATE TABLE Employee (
+  CREATE TABLE IF NOT EXISTS Employee (
     emp_id INT AUTO_INCREMENT PRIMARY KEY,
     emp_name VARCHAR(255) NOT NULL,
     emp_mail VARCHAR(255) UNIQUE,
@@ -62,11 +42,6 @@ function createTablesIfNotExist() {
   );
 `;
 
-  // executeQuery(createUsersTableQuery)
-  // .then(() => executeQuery(createAccessTokenQuery))
-  // .then(() => executeQuery(createPostsTableQuery))
-  // .then(() => executeQuery(createLikesTableQuery))
-  // .then(() => executeQuery(createFollowstable))
   executeQuery(createEmployeeTableQuery)
     .then(() => {
       console.log("Tables created (if not exists)");
